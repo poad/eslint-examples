@@ -34,5 +34,4 @@ jobs:
             args: [--no-frozen-lockfile]
         
     - name: Lint
-      working-directory: example/app
       run: pnpm -r --if-present --parallel lint
