@@ -7,10 +7,13 @@ import tseslint from 'typescript-eslint';
 // @ts-ignore
 import importPlugin from 'eslint-plugin-import';
 
+import pluginPromise from 'eslint-plugin-promise'
+
 export default tseslint.config(
   eslint.configs.recommended,
   ...tseslint.configs.strict,
   ...tseslint.configs.stylistic,
+  pluginPromise.configs['flat/recommended'],
   {
     ignores: [
       '**/*.d.ts',

@@ -13,6 +13,8 @@ import jsxA11yPlugin from 'eslint-plugin-jsx-a11y';
 // @ts-ignore
 import importPlugin from 'eslint-plugin-import';
 import flowtypePlugin from 'eslint-plugin-flowtype';
+import pluginPromise from 'eslint-plugin-promise'
+
 import tseslint from 'typescript-eslint';
 import { FlatCompat } from '@eslint/eslintrc';
 
@@ -36,6 +38,7 @@ export default tseslint.config(
   ...compat.config({
     extends: ['next/core-web-vitals'],
   }),
+  pluginPromise.configs['flat/recommended'],
   {
     files: ['**/*.{js,jsx,mjs,cjs,ts,tsx}'],
     ...importPlugin.flatConfigs.recommended,
