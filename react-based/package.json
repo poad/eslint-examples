@@ -11,7 +11,7 @@
     "lint-fix": "eslint --fix"
   },
   "dependencies": {
-    "next": "^14.2.11",
+    "next": "^14.2.13",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
@@ -22,10 +22,10 @@
     "@stylistic/eslint-plugin-plus": "^2.8.0",
     "@stylistic/eslint-plugin-ts": "^2.8.0",
     "@types/node": "^22.5.5",
-    "@types/react": "^18.3.6",
+    "@types/react": "^18.3.8",
     "@types/react-dom": "^18.3.0",
     "eslint": "^9.10.0",
-    "eslint-config-next": "^14.2.11",
+    "eslint-config-next": "^14.2.13",
     "eslint-import-resolver-typescript": "^3.6.3",
     "eslint-plugin-flowtype": "^8.0.3",
     "eslint-plugin-import": "^2.30.0",
