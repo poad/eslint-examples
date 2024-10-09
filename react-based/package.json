@@ -11,27 +11,29 @@
     "lint-fix": "eslint --fix"
   },
   "dependencies": {
-    "next": "^14.2.14",
+    "next": "^14.2.15",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@eslint/js": "^9.12.0",
     "@stylistic/eslint-plugin": "^2.9.0",
     "@stylistic/eslint-plugin-js": "^2.9.0",
     "@stylistic/eslint-plugin-jsx": "^2.9.0",
     "@stylistic/eslint-plugin-plus": "^2.9.0",
     "@stylistic/eslint-plugin-ts": "^2.9.0",
+    "@types/eslint__js": "^8.42.3",
     "@types/node": "^22.7.5",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.0",
     "eslint": "^9.12.0",
-    "eslint-config-next": "^14.2.14",
+    "eslint-config-next": "^14.2.15",
     "eslint-import-resolver-typescript": "^3.6.3",
     "eslint-plugin-flowtype": "^8.0.3",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-promise": "^7.1.0",
-    "globals": "^15.10.0",
-    "typescript": "^5.6.2",
+    "globals": "^15.11.0",
+    "typescript": "^5.6.3",
     "typescript-eslint": "^8.8.1"
   }
 }
