@@ -18,7 +18,7 @@ updates:
   - package-ecosystem: npm
     directories: 
       - '/non-react/'
-      - '/react-based'
+      - '/react-based/nextjs-based/'
     schedule:
       interval: daily
       timezone: Asia/Tokyo

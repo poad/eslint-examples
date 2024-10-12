@@ -79,10 +79,10 @@ export default tseslint.config(
       'jsx-a11y': jsxA11yPlugin,
       '@next/next': nextPlugin,
       'flow-type': flowtypePlugin,
+      'react-hooks': reactHooksPlugin,
     },
     extends: [
       // @ts-ignore
-      ...compat.config(reactHooksPlugin.configs.recommended),
       ...compat.config(jsxA11yPlugin.configs.recommended),
 
       ...tseslint.configs.strict,
@@ -102,6 +102,7 @@ export default tseslint.config(
       'react/jsx-no-undef': 'off',
       ...nextPlugin.configs.recommended.rules,
       ...nextPlugin.configs['core-web-vitals'].rules,
+      ...reactHooksPlugin.configs.recommended.rules,
       '@next/next/no-duplicate-head': 'off',
       '@next/next/no-img-element': 'error',
       '@next/next/no-page-custom-font': 'off',
