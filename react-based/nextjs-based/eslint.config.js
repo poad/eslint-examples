@@ -90,9 +90,6 @@ export default tseslint.config(
     ],
     // @ts-ignore
     rules: {
-      '@stylistic/semi': 'error',
-      '@stylistic/ts/indent': ['error', 2],
-      '@stylistic/jsx/jsx-indent': ['error', 2],
       'react/jsx-uses-react': 'off',
       'react/jsx-uses-vars': 'off',
       'react/require-render-return': 'off',
@@ -109,10 +106,12 @@ export default tseslint.config(
       'import/namespace': 'off',
       'import/no-named-as-default': 'off',
       'import/no-named-as-default-member': 'off',
-      'comma-dangle': ['error', 'always-multiline'],
-      'semi': ['error', 'always'],
-      'quotes': ['error', 'single'],
-      'indent': ['error', 2],
+      '@stylistic/ts/indent': ['error', 2],
+      '@stylistic/jsx/jsx-indent': ['error', 2],
+      '@stylistic/semi': ['error', 'always'],
+      '@stylistic/comma-dangle': ['error', 'always-multiline'],
+      '@stylistic/arrow-parens': ['error', 'always'],
+      '@stylistic/quotes': ['error', 'single'],
     },
   },
 );
