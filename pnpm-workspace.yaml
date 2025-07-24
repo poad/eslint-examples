@@ -1,3 +1,6 @@
 packages:
-  - './non-react'
-  - './react-based/*'
+  - ./non-react
+  - ./react-based/*
+
+onlyBuiltDependencies:
+  - sharp

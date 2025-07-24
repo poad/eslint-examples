@@ -20,6 +20,8 @@ export default tseslint.config(
   eslint.configs.recommended,
   ...tseslint.configs.strict,
   ...tseslint.configs.stylistic,
+  importPlugin.flatConfigs.recommended,
+  importPlugin.flatConfigs.typescript,
   pluginPromise.configs['flat/recommended'],
   {
     ignores: [
@@ -36,8 +38,6 @@ export default tseslint.config(
   },
   {
     files: ['src/**/*.ts'],
-    ...importPlugin.flatConfigs.recommended,
-    ...importPlugin.flatConfigs.typescript,
     languageOptions: {
       parser: tseslint.parser,
       ecmaVersion: 'latest',
