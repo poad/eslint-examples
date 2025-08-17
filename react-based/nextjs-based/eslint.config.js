@@ -8,9 +8,8 @@ import globals from 'globals';
 import nextPlugin from '@next/eslint-plugin-next';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
 import jsxA11yPlugin from 'eslint-plugin-jsx-a11y';
-import importPlugin from 'eslint-plugin-import';
 import flowtypePlugin from 'eslint-plugin-flowtype';
-import pluginPromise from 'eslint-plugin-promise'
+import pluginPromise from 'eslint-plugin-promise';
 
 import tseslint from 'typescript-eslint';
 import { FlatCompat } from '@eslint/eslintrc';
@@ -18,19 +17,18 @@ import { FlatCompat } from '@eslint/eslintrc';
 const compat = new FlatCompat();
 
 import { includeIgnoreFile } from '@eslint/compat';
-import path from "node:path";
-import { fileURLToPath } from "node:url";
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const gitignorePath = path.resolve(__dirname, ".gitignore");
+const gitignorePath = path.resolve(__dirname, '.gitignore');
 
 export default tseslint.config(
   includeIgnoreFile(gitignorePath),
   {
     ignores: [
       '*.d.ts',
-      '*.{js,jsx}',
       'src/tsconfig.json',
       '*.css',
       'node_modules/**/*',
@@ -47,8 +45,6 @@ export default tseslint.config(
   pluginPromise.configs['flat/recommended'],
   {
     files: ['**/*.{js,jsx,mjs,cjs,ts,tsx}'],
-    ...importPlugin.flatConfigs.recommended,
-    ...importPlugin.flatConfigs.typescript,
     languageOptions: {
       parserOptions: {
         ecmaFeatures: {
@@ -62,21 +58,21 @@ export default tseslint.config(
       ecmaVersion: 'latest',
       sourceType: 'module',
     },
-    settings: {
-      react: {
-        version: 'detect',
-      },
-      formComponents: ['Form'],
-      linkComponents: [
-        { name: 'Link', linkAttribute: 'to' },
-        { name: 'NavLink', linkAttribute: 'to' },
-      ],
-      'import/internal-regex': '^~/',
-      'import/resolver': {
-        node: true,
-        typescript: true,
-      },
-    },
+    // settings: {
+    //   react: {
+    //     version: 'detect',
+    //   },
+    //   formComponents: ['Form'],
+    //   linkComponents: [
+    //     { name: 'Link', linkAttribute: 'to' },
+    //     { name: 'NavLink', linkAttribute: 'to' },
+    //   ],
+    //   'import/internal-regex': '^~/',
+    //   'import/resolver': {
+    //     node: true,
+    //     typescript: true,
+    //   },
+    // },
     plugins: {
       '@stylistic': stylistic,
       '@stylistic/ts': stylistic,
@@ -88,13 +84,9 @@ export default tseslint.config(
       'react-hooks': reactHooksPlugin,
     },
     extends: [
-      // @ts-ignore
       ...compat.config(jsxA11yPlugin.configs.recommended),
-
-      ...tseslint.configs.strict,
-      ...tseslint.configs.stylistic,
     ],
-    // @ts-ignore
+    // @ts-expect-error ignore type error
     rules: {
       'react/jsx-uses-react': 'off',
       'react/jsx-uses-vars': 'off',
