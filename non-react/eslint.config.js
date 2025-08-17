@@ -8,8 +8,8 @@ import importPlugin from 'eslint-plugin-import';
 import pluginPromise from 'eslint-plugin-promise'
 
 import { includeIgnoreFile } from '@eslint/compat';
-import path from "node:path";
-import { fileURLToPath } from "node:url";
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -42,20 +42,19 @@ export default tseslint.config(
       parser: tseslint.parser,
       ecmaVersion: 'latest',
       sourceType: 'module',
-    },
-    settings: {
-      'import/resolver': {
-        typescript: true,
-        node: true,
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: __dirname,
       },
     },
     plugins: {
       '@stylistic': stylistic,
       '@stylistic/ts': stylistic,
     },
+    extends: [importPlugin.flatConfigs.recommended, importPlugin.flatConfigs.typescript],
     rules: {
       '@stylistic/semi': ['error', 'always'],
-      // '@stylistic/indent': ['error', 2],
+      '@stylistic/indent': ['error', 2],
       '@stylistic/comma-dangle': ['error', 'always-multiline'],
       '@stylistic/arrow-parens': ['error', 'always'],
       '@stylistic/quotes': ['error', 'single'],
