@@ -17,12 +17,6 @@ const gitignorePath = path.resolve(__dirname, "../.gitignore");
 
 export default tseslint.config(
   includeIgnoreFile(gitignorePath),
-  eslint.configs.recommended,
-  ...tseslint.configs.strict,
-  ...tseslint.configs.stylistic,
-  importPlugin.flatConfigs.recommended,
-  importPlugin.flatConfigs.typescript,
-  pluginPromise.configs['flat/recommended'],
   {
     ignores: [
       '**/*.d.ts',
@@ -36,8 +30,34 @@ export default tseslint.config(
       'dist',
     ],
   },
+  eslint.configs.recommended,
+  ...tseslint.configs.strict,
+  ...tseslint.configs.stylistic,
+  pluginPromise.configs['flat/recommended'],
+  {
+    plugins: {
+      '@stylistic': stylistic,
+    },
+    rules: {
+      '@stylistic/semi': ['error', 'always'],
+      '@stylistic/indent': ['error', 2],
+      '@stylistic/comma-dangle': ['error', 'always-multiline'],
+      '@stylistic/arrow-parens': ['error', 'always'],
+      '@stylistic/quotes': ['error', 'single'],
+    },
+  },
+  {
+    files: ['*.js'],
+    plugins: {
+      '@stylistic/js': stylistic,
+    },
+  },
   {
     files: ['src/**/*.ts'],
+    plugins: {
+      '@stylistic/ts': stylistic,
+    },
+    extends: [importPlugin.flatConfigs.recommended, importPlugin.flatConfigs.typescript],
     languageOptions: {
       parser: tseslint.parser,
       ecmaVersion: 'latest',
@@ -47,17 +67,13 @@ export default tseslint.config(
         tsconfigRootDir: __dirname,
       },
     },
-    plugins: {
-      '@stylistic': stylistic,
-      '@stylistic/ts': stylistic,
-    },
-    extends: [importPlugin.flatConfigs.recommended, importPlugin.flatConfigs.typescript],
-    rules: {
-      '@stylistic/semi': ['error', 'always'],
-      '@stylistic/indent': ['error', 2],
-      '@stylistic/comma-dangle': ['error', 'always-multiline'],
-      '@stylistic/arrow-parens': ['error', 'always'],
-      '@stylistic/quotes': ['error', 'single'],
+    settings: {
+      'import/resolver': {
+        // You will also need to install and configure the TypeScript resolver
+        // See also https://github.com/import-js/eslint-import-resolver-typescript#configuration
+        'typescript': true,
+        'node': true,
+      },
     },
   },
 );

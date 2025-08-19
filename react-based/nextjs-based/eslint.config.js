@@ -46,6 +46,9 @@ export default tseslint.config(
   {
     files: ['**/*.{js,jsx,mjs,cjs,ts,tsx}'],
     languageOptions: {
+      parser: tseslint.parser,
+      ecmaVersion: 'latest',
+      sourceType: 'module',
       parserOptions: {
         ecmaFeatures: {
           jsx: true,
@@ -54,28 +57,26 @@ export default tseslint.config(
       globals: {
         ...globals.browser,
       },
-      parser: tseslint.parser,
-      ecmaVersion: 'latest',
-      sourceType: 'module',
     },
-    // settings: {
-    //   react: {
-    //     version: 'detect',
-    //   },
-    //   formComponents: ['Form'],
-    //   linkComponents: [
-    //     { name: 'Link', linkAttribute: 'to' },
-    //     { name: 'NavLink', linkAttribute: 'to' },
-    //   ],
-    //   'import/internal-regex': '^~/',
-    //   'import/resolver': {
-    //     node: true,
-    //     typescript: true,
-    //   },
-    // },
+    settings: {
+      react: {
+        version: 'detect',
+      },
+      formComponents: ['Form'],
+      linkComponents: [
+        { name: 'Link', linkAttribute: 'to' },
+        { name: 'NavLink', linkAttribute: 'to' },
+      ],
+      'import/internal-regex': '^~/',
+      'import/resolver': {
+        node: true,
+        typescript: true,
+      },
+    },
     plugins: {
       '@stylistic': stylistic,
       '@stylistic/ts': stylistic,
+      '@stylistic/js': stylistic,
       '@stylistic/jsx': stylistic,
       react,
       'jsx-a11y': jsxA11yPlugin,
@@ -101,10 +102,10 @@ export default tseslint.config(
       '@next/next/no-duplicate-head': 'off',
       '@next/next/no-img-element': 'error',
       '@next/next/no-page-custom-font': 'off',
-      'import/namespace': 'off',
-      'import/no-named-as-default': 'off',
-      'import/no-named-as-default-member': 'off',
-      // '@stylistic/indent': ['error', 2],
+      // 'import/namespace': 'off',
+      // 'import/no-named-as-default': 'off',
+      // 'import/no-named-as-default-member': 'off',
+      '@stylistic/indent': ['error', 2],
       '@stylistic/semi': ['error', 'always'],
       '@stylistic/comma-dangle': ['error', 'always-multiline'],
       '@stylistic/arrow-parens': ['error', 'always'],
