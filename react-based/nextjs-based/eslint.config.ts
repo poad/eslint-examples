@@ -1,5 +1,3 @@
-// @ts-check
-
 import eslint from '@eslint/js';
 import stylistic from '@stylistic/eslint-plugin';
 import react from 'eslint-plugin-react';
@@ -7,8 +5,14 @@ import globals from 'globals';
 
 import nextPlugin from '@next/eslint-plugin-next';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
+
+// @ts-expect-error ignore type error --- IGNORE ---
 import jsxA11yPlugin from 'eslint-plugin-jsx-a11y';
+
+// @ts-expect-error ignore type error --- IGNORE ---
 import flowtypePlugin from 'eslint-plugin-flowtype';
+
+// @ts-expect-error ignore type error --- IGNORE ---
 import pluginPromise from 'eslint-plugin-promise';
 
 import tseslint from 'typescript-eslint';
@@ -24,7 +28,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const gitignorePath = path.resolve(__dirname, '.gitignore');
 
-export default tseslint.config(
+const eslintConfig =  tseslint.config(
   includeIgnoreFile(gitignorePath),
   {
     ignores: [
@@ -53,6 +57,10 @@ export default tseslint.config(
         ecmaFeatures: {
           jsx: true,
         },
+        projectService: {
+          allowDefaultProject: [path.resolve(__dirname, 'tsconfig.json')],
+        },
+        tsconfigRootDir: __dirname,
       },
       globals: {
         ...globals.browser,
@@ -113,3 +121,5 @@ export default tseslint.config(
     },
   },
 );
+
+export default eslintConfig;
