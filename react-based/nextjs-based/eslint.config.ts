@@ -57,10 +57,7 @@ const eslintConfig =  tseslint.config(
         ecmaFeatures: {
           jsx: true,
         },
-        projectService: {
-          allowDefaultProject: [path.resolve(__dirname, 'tsconfig.json')],
-        },
-        tsconfigRootDir: __dirname,
+        tsconfigRootDir: import.meta.dirname,
       },
       globals: {
         ...globals.browser,

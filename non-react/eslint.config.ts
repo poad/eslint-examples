@@ -1,9 +1,8 @@
 import eslint from '@eslint/js';
+import tseslint, { configs, parser, ConfigArray } from 'typescript-eslint';
 import stylistic from '@stylistic/eslint-plugin';
-import tseslint, { ConfigArray, configs, parser } from 'typescript-eslint';
 import importPlugin from 'eslint-plugin-import';
-
-// @ts-expect-error ignore type error --- IGNORE ---
+// @ts-expect-error ignore type errors
 import pluginPromise from 'eslint-plugin-promise';
 
 import { includeIgnoreFile } from '@eslint/compat';
@@ -14,7 +13,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const gitignorePath = path.resolve(__dirname, '../.gitignore');
 
-const eslintConfig: ConfigArray =  tseslint.config(
+const eslintConfig: ConfigArray = tseslint.config(
   includeIgnoreFile(gitignorePath),
   {
     ignores: [
@@ -33,20 +32,23 @@ const eslintConfig: ConfigArray =  tseslint.config(
   ...configs.stylistic,
   pluginPromise.configs['flat/recommended'],
   {
-    files: ['src/**/*.ts', '*.js'],
+    files: ['**/*.ts', '*.js'],
     plugins: {
       '@stylistic': stylistic,
     },
-    extends: [importPlugin.flatConfigs.recommended, importPlugin.flatConfigs.typescript],
     languageOptions: {
-      parser,
       ecmaVersion: 'latest',
       sourceType: 'module',
-      // parserOptions: {
-      //   projectService: true,
-      //   tsconfigRootDir: __dirname,
-      // },
+      parser,
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
+      },
     },
+    extends: [
+      importPlugin.flatConfigs.recommended,
+      importPlugin.flatConfigs.typescript,
+    ],
     settings: {
       'import/resolver': {
         // You will also need to install and configure the TypeScript resolver
@@ -62,7 +64,6 @@ const eslintConfig: ConfigArray =  tseslint.config(
       '@stylistic/arrow-parens': ['error', 'always'],
       '@stylistic/quotes': ['error', 'single'],
     },
-
   },
 );
 
