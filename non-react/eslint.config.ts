@@ -28,8 +28,8 @@ const eslintConfig: ConfigArray = tseslint.config(
     ],
   },
   eslint.configs.recommended,
-  ...configs.strict,
-  ...configs.stylistic,
+  configs.strict,
+  configs.stylistic,
   pluginPromise.configs['flat/recommended'],
   {
     files: ['**/*.ts', '*.js'],
@@ -42,7 +42,7 @@ const eslintConfig: ConfigArray = tseslint.config(
       parser,
       parserOptions: {
         projectService: true,
-        tsconfigRootDir: import.meta.dirname,
+        tsconfigRootDir: __dirname,
       },
     },
     extends: [
