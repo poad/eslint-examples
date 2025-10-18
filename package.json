@@ -10,8 +10,8 @@
   "keywords": [],
   "author": "",
   "license": "UNLICENSED",
-  "packageManager": "pnpm@10.18.2",
+  "packageManager": "pnpm@10.18.3",
   "devDependencies": {
-    "pnpm": "^10.18.2"
+    "pnpm": "^10.18.3"
   }
 }
