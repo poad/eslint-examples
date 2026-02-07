@@ -1,13 +1,12 @@
-import { defineConfig } from 'eslint/config';
+import { defineConfig, globalIgnores } from 'eslint/config';
 import eslint from '@eslint/js';
 import stylistic from '@stylistic/eslint-plugin';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
-import importPlugin from 'eslint-plugin-import';
 // @ts-expect-error ignore plugin type
 import pluginPromise from 'eslint-plugin-promise';
-// import reactRefresh from "eslint-plugin-react-refresh";
-import nextPlugin from '@next/eslint-plugin-next';
+import nextVitals from 'eslint-config-next/core-web-vitals';
+import nextTs from 'eslint-config-next/typescript';
 import globals from 'globals';
 import { configs, parser } from 'typescript-eslint';
 
@@ -20,6 +19,16 @@ const __dirname = path.dirname(__filename);
 const gitignorePath = path.resolve(__dirname, './.gitignore');
 
 export default defineConfig(
+  ...nextVitals,
+  ...nextTs,
+  // Override default ignores of eslint-config-next.
+  globalIgnores([
+    // Default ignores of eslint-config-next:
+    '.next/**',
+    'out/**',
+    'build/**',
+    'next-env.d.ts',
+  ]),
   includeIgnoreFile(gitignorePath),
   {
     ignores: [
@@ -37,7 +46,6 @@ export default defineConfig(
   ...configs.stylistic,
   pluginPromise.configs['flat/recommended'],
   reactHooks.configs.flat.recommended,
-  // reactRefresh.configs.recommended,
   {
     files: ['**/*.ts', '**/*.tsx'],
     ...react.configs.flat.recommended,
@@ -50,31 +58,7 @@ export default defineConfig(
         ...globals.browser,
       },
     },
-    extends: [
-      importPlugin.flatConfigs.recommended,
-      importPlugin.flatConfigs.typescript,
-    ],
-    settings: {
-      react: {
-        version: 'detect',
-      },
-      formComponents: ['Form'],
-      linkComponents: [
-        { name: 'Link', linkAttribute: 'to' },
-        { name: 'NavLink', linkAttribute: 'to' },
-      ],
-      'import/internal-regex': '^~/',
-      'import/resolver': {
-        node: {
-          extensions: ['.ts', '.tsx'],
-        },
-        typescript: {
-          alwaysTryTypes: true,
-        },
-      },
-    },
     plugins: {
-      '@next/next': nextPlugin,
       '@stylistic': stylistic,
     },
     rules: {
