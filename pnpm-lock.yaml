@@ -7,14 +7,15 @@ settings:
 overrides:
   '@types/react': 19.2.2
   '@types/react-dom': 19.2.2
+  '@stylistic/eslint-plugin': '>=5.0.0'
 
 importers:
 
   .:
     devDependencies:
       pnpm:
-        specifier: ^10.28.2
-        version: 10.28.2
+        specifier: ^10.29.1
+        version: 10.29.1
 
   non-react:
     devDependencies:
@@ -31,8 +32,8 @@ importers:
         specifier: ^5.7.1
         version: 5.7.1(eslint@10.0.0(jiti@2.6.1))
       '@types/node':
-        specifier: ^25.2.1
-        version: 25.2.1
+        specifier: ^25.2.2
+        version: 25.2.2
       eslint:
         specifier: ^10.0.0
         version: 10.0.0(jiti@2.6.1)
@@ -83,8 +84,8 @@ importers:
         specifier: ^5.7.1
         version: 5.7.1(eslint@9.39.2(jiti@2.6.1))
       '@types/node':
-        specifier: ^25.2.1
-        version: 25.2.1
+        specifier: ^25.2.2
+        version: 25.2.2
       '@types/react':
         specifier: 19.2.2
         version: 19.2.2
@@ -611,8 +612,8 @@ packages:
   '@types/json5@0.0.29':
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
 
-  '@types/node@25.2.1':
-    resolution: {integrity: sha512-CPrnr8voK8vC6eEtyRzvMpgp3VyVRhgclonE7qYi6P9sXwYb59ucfrnmFBTaP0yUi8Gk4yZg/LlTJULGxvTNsg==}
+  '@types/node@25.2.2':
+    resolution: {integrity: sha512-BkmoP5/FhRYek5izySdkOneRyXYN35I860MFAGupTdebyE66uZaR+bXLHq8k4DirE5DwQi3NuhvRU1jqTVwUrQ==}
 
   '@types/react-dom@19.2.2':
     resolution: {integrity: sha512-9KQPoO6mZCi7jcIStSnlOWn2nEF3mNmyr3rIAsGnAbQKYbRLyqmeSc39EVgtxXVia+LMT8j3knZLAZAh+xLmrw==}
@@ -1691,8 +1692,8 @@ packages:
     resolution: {integrity: sha512-5gTmgEY/sqK6gFXLIsQNH19lWb4ebPDLA4SdLP7dsWkIXHWlG66oPuVvXSGFPppYZz8ZDZq0dYYrbHfBCVUb1Q==}
     engines: {node: '>=12'}
 
-  pnpm@10.28.2:
-    resolution: {integrity: sha512-QYcvA3rSL3NI47Heu69+hnz9RI8nJtnPdMCPGVB8MdLI56EVJbmD/rwt9kC1Q43uYCPrsfhO1DzC1lTSvDJiZA==}
+  pnpm@10.29.1:
+    resolution: {integrity: sha512-SNriM2NaZFdoowKNGVRcrMFohjnusfNzTkLW1rlxr78iqhrJr1Khc9nDogwVhXz6QA8ZmU15ovYm/Mc/zNqbvA==}
     engines: {node: '>=18.12'}
     hasBin: true
 
@@ -2465,7 +2466,7 @@ snapshots:
 
   '@types/json5@0.0.29': {}
 
-  '@types/node@25.2.1':
+  '@types/node@25.2.2':
     dependencies:
       undici-types: 7.16.0
 
@@ -3881,7 +3882,7 @@ snapshots:
 
   picomatch@4.0.3: {}
 
-  pnpm@10.28.2: {}
+  pnpm@10.29.1: {}
 
   possible-typed-array-names@1.1.0: {}
 
