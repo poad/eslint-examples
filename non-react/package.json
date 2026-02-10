@@ -10,7 +10,7 @@
     "@eslint/compat": "^2.0.2",
     "@eslint/core": "^1.1.0",
     "@eslint/js": "^10.0.1",
-    "@stylistic/eslint-plugin": "^5.7.1",
+    "@stylistic/eslint-plugin": "^5.8.0",
     "@types/node": "^25.2.2",
     "eslint": "^10.0.0",
     "eslint-import-resolver-typescript": "^4.4.4",
@@ -18,6 +18,6 @@
     "eslint-plugin-promise": "^7.2.1",
     "jiti": "^2.6.1",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.54.0"
+    "typescript-eslint": "^8.55.0"
   }
 }
