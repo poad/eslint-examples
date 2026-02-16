@@ -22,8 +22,8 @@
     "@next/eslint-plugin-next": "^16.1.6",
     "@stylistic/eslint-plugin": "^5.8.0",
     "@types/node": "^25.2.3",
-    "@types/react": "19.2.14",
-    "@types/react-dom": "19.2.3",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
     "eslint": "^9.39.2",
     "eslint-config-next": "^16.1.6",
     "eslint-import-resolver-typescript": "^4.4.4",
@@ -37,6 +37,6 @@
     "globals": "^17.3.0",
     "jiti": "^2.6.1",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.55.0"
+    "typescript-eslint": "^8.56.0"
   }
 }
