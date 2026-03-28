@@ -1,0 +1,39 @@
+{
+  "name": "aws-cdk-vitest",
+  "version": "0.1.0",
+  "type": "module",
+  "bin": {
+    "aws-cdk": "bin/aws-cdk-vitest.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "vitest run",
+    "cdk": "cdk",
+    "lint": "eslint",
+    "lint-fix": "eslint --fix"
+  },
+  "devDependencies": {
+    "@eslint/compat": "^2.0.3",
+    "@eslint/js": "^9.39.4",
+    "@stylistic/eslint-plugin": "^5.10.0",
+    "@types/node": "^24.12.0",
+    "@vitest/coverage-v8": "^4.1.2",
+    "@vitest/eslint-plugin": "^1.6.13",
+    "aws-cdk": "^2.1114.1",
+    "eslint": "^9.39.4",
+    "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-plugin-awscdk": "^4.3.0",
+    "eslint-plugin-import-x": "^4.16.2",
+    "eslint-plugin-promise": "^7.2.1",
+    "jiti": "^2.6.1",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.2",
+    "typescript-eslint": "^8.57.2",
+    "vitest": "^4.1.2"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "^2.245.0",
+    "constructs": "^10.6.0"
+  }
+}

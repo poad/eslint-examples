@@ -19,6 +19,8 @@ updates:
     directories: 
       - '/non-react/'
       - '/react-based/nextjs-based/'
+      - '/aws-cdk/'
+      - '/aws-cdk-vitest/'
     schedule:
       interval: daily
       timezone: Asia/Tokyo

@@ -1,16 +1,8 @@
 packages:
   - ./non-react
   - ./react-based/*
+  - ./aws-cdk
+  - ./aws-cdk-vitest
 
 onlyBuiltDependencies:
   - sharp
-
-overrides:
-  '@eslint/eslintrc>ajv': ^6.12.4
-  '@stylistic/eslint-plugin': '>=5.0.0'
-  '@types/node': ^24.10.4
-  '@types/react': ^19.2.2
-  '@types/react-dom': ^19.2.2
-  ajv@<8.18.0: '>=8.18.0'
-  eslint>ajv: ^6.12.4
-  minimatch@<10.2.1: '>=10.2.1'
