@@ -58,7 +58,8 @@ export default defineConfig(
         createTypeScriptImportResolver({
           alwaysTryTypes: true,
         }),
-      ]    },
+      ],
+    },
     rules: {
       '@stylistic/semi': ['error', 'always'],
       '@stylistic/indent': ['error', 2],
