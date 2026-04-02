@@ -3,6 +3,25 @@ packages:
   - ./react-based/*
   - ./aws-cdk
   - ./aws-cdk-vitest
+minimumReleaseAge: 10080 # 7 days in minutes
+minimumReleaseAgeExclude:
+  - 'lodash@4.18.1'
+  - 'handlebars@4.7.9'
 
-onlyBuiltDependencies:
-  - sharp
+overrides:
+  brace-expansion@<1.1.13: '>=1.1.13'
+  brace-expansion@>=2.0.0 <2.0.3: '>=2.0.3'
+  eslint-import-resolver-typescript: '>=4'
+  handlebars@>=4.0.0 <4.7.9: '>=4.7.9'
+  handlebars@>=4.0.0 <=4.7.8: '>=4.7.9'
+  handlebars@>=4.6.0 <=4.7.8: '>=4.7.9'
+  semver: '>=7'
+  # '@eslint/js': '>=10'
+  # eslint: '>=10'
+  # typescript-eslint: '^8'
+  # aws-cdk: '^2.1113.0'
+  # aws-cdk-lib: '^2.244.0'
+  # esbuild: '^0.27.4'
+
+
+trustPolicy: no-downgrade

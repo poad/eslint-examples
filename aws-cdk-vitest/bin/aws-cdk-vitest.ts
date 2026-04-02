@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-import * as cdk from 'aws-cdk-lib/core';
 import { AwsCdkVitestStack } from '../lib/aws-cdk-vitest-stack.js';
+import * as cdk from 'aws-cdk-lib/core';
 
 const app = new cdk.App();
 new AwsCdkVitestStack(app, 'AwsCdkVitest', {

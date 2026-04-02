@@ -1,9 +1,11 @@
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'eslint/config';
 import cdkPlugin from 'eslint-plugin-awscdk';
 import eslint from '@eslint/js';
 import { configs, parser } from 'typescript-eslint';
 import stylistic from '@stylistic/eslint-plugin';
-import { importX } from 'eslint-plugin-import-x';
+import { importX, createNodeResolver } from 'eslint-plugin-import-x';
 import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
 
 import pluginJest from 'eslint-plugin-jest';
@@ -12,8 +14,6 @@ import pluginJest from 'eslint-plugin-jest';
 import pluginPromise from 'eslint-plugin-promise';
 
 import { includeIgnoreFile } from '@eslint/compat';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -36,10 +36,6 @@ export default defineConfig(
   pluginPromise.configs['flat/recommended'],
   {
     files: ['**/*.ts'],
-    plugins: {
-      'import-x': importX,
-      '@stylistic': stylistic,
-    },
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
@@ -48,6 +44,10 @@ export default defineConfig(
         projectService: true,
         tsconfigRootDir: __dirname,
       },
+    },
+    plugins: {
+      'import-x': importX,
+      '@stylistic': stylistic,
     },
     extends: [
       'import-x/flat/recommended',
@@ -58,6 +58,7 @@ export default defineConfig(
         createTypeScriptImportResolver({
           alwaysTryTypes: true,
         }),
+        createNodeResolver(),
       ],
     },
     rules: {
@@ -66,6 +67,22 @@ export default defineConfig(
       '@stylistic/comma-dangle': ['error', 'always-multiline'],
       '@stylistic/arrow-parens': ['error', 'always'],
       '@stylistic/quotes': ['error', 'single'],
+      'import-x/order': [
+        'error',
+        {
+          'groups': [
+            // Imports of builtins are first
+            'builtin',
+            // Then sibling and parent imports. They can be mingled together
+            ['sibling', 'parent'],
+            // Then index file imports
+            'index',
+            // Then any arcane TypeScript imports
+            'object',
+            // Then the omitted imports: internal, external, type, unknown
+          ],
+        },
+      ],
     },
   },
   {
@@ -94,14 +111,14 @@ export default defineConfig(
         createTypeScriptImportResolver({
           alwaysTryTypes: true,
         }),
-      ]    },
+      ],
+    },
     rules: {
       '@stylistic/semi': ['error', 'always'],
       '@stylistic/indent': ['error', 2],
       '@stylistic/comma-dangle': ['error', 'always-multiline'],
       '@stylistic/arrow-parens': ['error', 'always'],
       '@stylistic/quotes': ['error', 'single'],
-
 
       'import-x/order': [
         'error',

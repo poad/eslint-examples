@@ -4,7 +4,8 @@ import { defineConfig } from 'eslint/config';
 import eslint from '@eslint/js';
 import { configs, parser } from 'typescript-eslint';
 import stylistic from '@stylistic/eslint-plugin';
-import { importX } from 'eslint-plugin-import-x';
+import { importX, createNodeResolver } from 'eslint-plugin-import-x';
+import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
 // @ts-expect-error ignore type errors
 import pluginPromise from 'eslint-plugin-promise';
 
@@ -34,10 +35,6 @@ export default defineConfig(
   pluginPromise.configs['flat/recommended'],
   {
     files: ['**/*.ts', '*.js'],
-    plugins: {
-      '@stylistic': stylistic,
-      'import-x': importX,
-    },
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
@@ -47,15 +44,20 @@ export default defineConfig(
         tsconfigRootDir: __dirname,
       },
     },
+    plugins: {
+      'import-x': importX,
+      '@stylistic': stylistic,
+    },
     extends: [
-      importX.flatConfigs.recommended,
-      importX.flatConfigs.typescript,
+      'import-x/flat/recommended',
     ],
     settings: {
-      'import-x/resolver': {
-        'typescript': true,
-        'node': true,
-      },
+      'import-x/resolver-next': [
+        createTypeScriptImportResolver({
+          alwaysTryTypes: true,
+        }),
+        createNodeResolver(),
+      ],
     },
     rules: {
       '@stylistic/semi': ['error', 'always'],
@@ -63,7 +65,6 @@ export default defineConfig(
       '@stylistic/comma-dangle': ['error', 'always-multiline'],
       '@stylistic/arrow-parens': ['error', 'always'],
       '@stylistic/quotes': ['error', 'single'],
-
 
       'import-x/order': [
         'error',
