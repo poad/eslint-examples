@@ -22,6 +22,7 @@
     "strictPropertyInitialization": false,
     "skipLibCheck": true,
     "rootDirs": ["bin", "lib"],
+    "noEmit": true,
     "typeRoots": [
       "./node_modules/@types"
     ],
@@ -29,6 +30,7 @@
   },
   "exclude": [
     "node_modules",
-    "cdk.out"
+    "cdk.out",
+    "eslint.config.ts"
   ]
 }

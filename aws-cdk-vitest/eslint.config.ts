@@ -41,7 +41,9 @@ export default defineConfig(
       sourceType: 'module',
       parser,
       parserOptions: {
-        projectService: true,
+        projectService: {
+          allowDefaultProject: ['eslint.config.ts', 'vitest.config.ts'],
+        },
         tsconfigRootDir: __dirname,
       },
     },

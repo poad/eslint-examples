@@ -40,7 +40,9 @@ export default defineConfig(
       sourceType: 'module',
       parser,
       parserOptions: {
-        projectService: true,
+        projectService: {
+          allowDefaultProject: ['eslint.config.ts'],
+        },
         tsconfigRootDir: __dirname,
       },
     },

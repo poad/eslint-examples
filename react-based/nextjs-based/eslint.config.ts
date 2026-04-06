@@ -51,6 +51,12 @@ export default defineConfig(
         ...globals.serviceworker,
         ...globals.browser,
       },
+      parserOptions: {
+        projectService: {
+          allowDefaultProject: ['eslint.config.ts'],
+        },
+        tsconfigRootDir: __dirname,
+      },
     },
     plugins: {
       '@stylistic': stylistic,
