@@ -16,6 +16,7 @@ overrides:
   handlebars@>=4.0.0 <=4.7.8: '>=4.7.9'
   handlebars@>=4.6.0 <=4.7.8: '>=4.7.9'
   semver: '>=7'
+  vite@>=8.0.0 <=8.0.4: '>=8.0.5'
   # '@eslint/js': '>=10'
   # eslint: '>=10'
   # typescript-eslint: '^8'
