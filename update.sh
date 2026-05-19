@@ -15,7 +15,7 @@ fi
 echo ""
 pwd
 
-if ! (pnpm self-update && pnpm install && pnpm up -r && pnpm audit --fix override && pnpm up -r && pnpm -r --if-present --parallel lint-fix && pnpm -r --if-present --parallel build && pnpm install -r); then
+if ! (pnpm dlx pnpm@latest self-update && pnpm install && pnpm up -r && pnpm audit --fix override && pnpm up -r && pnpm -r --if-present --parallel lint-fix && pnpm -r --if-present --parallel build && pnpm install -r); then
   cd "${CUR}" || exit
   exit 1
 fi

@@ -1,15 +1,12 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { defineConfig } from 'eslint/config';
+import { defineConfig, includeIgnoreFile } from 'eslint/config';
 import eslint from '@eslint/js';
 import { configs, parser } from 'typescript-eslint';
 import stylistic from '@stylistic/eslint-plugin';
 import { importX, createNodeResolver } from 'eslint-plugin-import-x';
 import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
-// @ts-expect-error ignore type errors
 import pluginPromise from 'eslint-plugin-promise';
-
-import { includeIgnoreFile } from '@eslint/compat';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -32,7 +29,10 @@ export default defineConfig(
   eslint.configs.recommended,
   configs.strict,
   configs.stylistic,
+  // @ts-expect-error ignore type errors
   pluginPromise.configs['flat/recommended'],
+  importX.flatConfigs.recommended,
+  importX.flatConfigs.typescript,
   {
     files: ['**/*.ts', '*.js'],
     languageOptions: {
@@ -47,12 +47,8 @@ export default defineConfig(
       },
     },
     plugins: {
-      'import-x': importX,
       '@stylistic': stylistic,
     },
-    extends: [
-      'import-x/flat/recommended',
-    ],
     settings: {
       'import-x/resolver-next': [
         createTypeScriptImportResolver({
