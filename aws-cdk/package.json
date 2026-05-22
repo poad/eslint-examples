@@ -18,7 +18,7 @@
     "@stylistic/eslint-plugin": "^5.10.0",
     "@types/jest": "^30.0.0",
     "@types/node": "^24.12.4",
-    "aws-cdk": "^2.1121.0",
+    "aws-cdk": "^2.1122.0",
     "eslint": "^10.4.0",
     "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-awscdk": "^4.3.3",
@@ -28,7 +28,7 @@
     "jest": "^30.4.2",
     "jiti": "^2.7.0",
     "ts-jest": "^29.4.9",
-    "tsx": "^4.21.0",
+    "tsx": "^4.22.0",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.59.3"
   },
