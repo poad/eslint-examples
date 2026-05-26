@@ -11,18 +11,20 @@ allowBuilds:
 
 blockExoticSubdeps: true
 
+configDependencies:
+  '@pnpm/pacquet': 0.2.12
+
 minimumReleaseAge: 10080 # 7 days in minutes
 
 minimumReleaseAgeExclude:
   - postcss@8.5.10
   - eslint@10.4.0
+  - ts-jest@29.4.11
 
 overrides:
   eslint-import-resolver-typescript: '^4.4.4'
   next@>=16.0.0 <16.2.6: ^16.2.6
   postcss@<8.5.10: ^8.5.10
   semver: '>=7'
-
-  eslint: ^10.4.0
 
 trustPolicy: no-downgrade

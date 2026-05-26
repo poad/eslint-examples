@@ -6,6 +6,7 @@ import { configs, parser } from 'typescript-eslint';
 import stylistic from '@stylistic/eslint-plugin';
 import { importX, createNodeResolver } from 'eslint-plugin-import-x';
 import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
+// @ts-expect-error ignore type errors
 import pluginPromise from 'eslint-plugin-promise';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -29,7 +30,6 @@ export default defineConfig(
   eslint.configs.recommended,
   configs.strict,
   configs.stylistic,
-  // @ts-expect-error ignore type errors
   pluginPromise.configs['flat/recommended'],
   importX.flatConfigs.recommended,
   importX.flatConfigs.typescript,

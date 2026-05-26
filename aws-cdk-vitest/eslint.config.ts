@@ -10,6 +10,7 @@ import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescrip
 
 import vitest from '@vitest/eslint-plugin';
 
+// @ts-expect-error ignore type errors
 import pluginPromise from 'eslint-plugin-promise';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -30,7 +31,6 @@ export default defineConfig(
   eslint.configs.recommended,
   ...configs.strict,
   ...configs.stylistic,
-  // @ts-expect-error ignore type errors
   pluginPromise.configs['flat/recommended'],
   importX.flatConfigs.recommended,
   importX.flatConfigs.typescript,

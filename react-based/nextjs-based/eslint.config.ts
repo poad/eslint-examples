@@ -1,14 +1,17 @@
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { defineConfig, globalIgnores, includeIgnoreFile } from 'eslint/config';
 import eslint from '@eslint/js';
 import stylistic from '@stylistic/eslint-plugin';
+// @ts-expect-error ignore type errors
 import pluginPromise from 'eslint-plugin-promise';
 import nextVitals from 'eslint-config-next/core-web-vitals';
 import nextTs from 'eslint-config-next/typescript';
 import globals from 'globals';
 import { configs, parser } from 'typescript-eslint';
+import { importX, createNodeResolver } from 'eslint-plugin-import-x';
+import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
 
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -40,8 +43,9 @@ export default defineConfig(
   eslint.configs.recommended,
   ...configs.strict,
   ...configs.stylistic,
-  // @ts-expect-error ignore plugin type
   pluginPromise.configs['flat/recommended'],
+  importX.flatConfigs.recommended,
+  importX.flatConfigs.typescript,
   {
     files: ['**/*.ts', '**/*.tsx'],
     languageOptions: {
@@ -64,6 +68,12 @@ export default defineConfig(
       react: {
         version: '19.2',
       },
+      'import-x/resolver-next': [
+        createTypeScriptImportResolver({
+          alwaysTryTypes: true,
+        }),
+        createNodeResolver(),
+      ],
     },
     rules: {
       '@stylistic/semi': 'error',
@@ -71,6 +81,23 @@ export default defineConfig(
       '@stylistic/comma-dangle': ['error', 'always-multiline'],
       '@stylistic/arrow-parens': ['error', 'always'],
       '@stylistic/quotes': ['error', 'single'],
+
+      'import-x/order': [
+        'error',
+        {
+          'groups': [
+            // Imports of builtins are first
+            'builtin',
+            // Then sibling and parent imports. They can be mingled together
+            ['sibling', 'parent'],
+            // Then index file imports
+            'index',
+            // Then any arcane TypeScript imports
+            'object',
+            // Then the omitted imports: internal, external, type, unknown
+          ],
+        },
+      ],
     },
   },
 );
