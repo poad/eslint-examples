@@ -97,7 +97,9 @@ export default defineConfig(
       globals: pluginJest.environments.globals.globals,
       parser,
       parserOptions: {
-        projectService: true,
+        projectService: {
+          allowDefaultProject: ['eslint.config.ts'],
+        },
         tsconfigRootDir: __dirname,
       },
     },
