@@ -14,9 +14,8 @@ blockExoticSubdeps: true
 minimumReleaseAge: 10080 # 7 days in minutes
 
 minimumReleaseAgeExclude:
-  - postcss@8.5.10
-  - eslint@10.4.0
-  - ts-jest@29.4.11
+  - ast-v8-to-istanbul@1.0.3
+  - tinyexec@1.2.3
 
 overrides:
   eslint-import-resolver-typescript: '^4.4.4'
