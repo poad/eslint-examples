@@ -16,6 +16,7 @@ minimumReleaseAge: 10080 # 7 days in minutes
 minimumReleaseAgeExclude:
   - ast-v8-to-istanbul@1.0.3
   - tinyexec@1.2.3
+  - pnpm@11.5.3
 
 overrides:
   eslint-import-resolver-typescript: '^4.4.4'
