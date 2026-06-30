@@ -40,9 +40,6 @@ export default defineConfig(
       './.next/*',
     ],
   },
-  eslint.configs.recommended,
-  ...configs.strict,
-  ...configs.stylistic,
   pluginPromise.configs['flat/recommended'],
   importX.flatConfigs.recommended,
   importX.flatConfigs.typescript,
@@ -75,6 +72,11 @@ export default defineConfig(
         createNodeResolver(),
       ],
     },
+    extends: [
+      eslint.configs.recommended,
+      configs.strict,
+      configs.stylistic,
+    ],
     rules: {
       '@stylistic/semi': 'error',
       '@stylistic/indent': ['error', 2],

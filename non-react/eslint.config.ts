@@ -14,9 +14,9 @@ const __dirname = path.dirname(__filename);
 const gitignorePath = path.resolve(__dirname, '../.gitignore');
 
 export default defineConfig(
+  includeIgnoreFile(gitignorePath),
   {
     ignores: [
-      ...(includeIgnoreFile(gitignorePath).ignores || []),
       '**/*.d.ts',
       'src/tsconfig.json',
       'src/stories',
@@ -27,9 +27,6 @@ export default defineConfig(
       'dist',
     ],
   },
-  eslint.configs.recommended,
-  configs.strict,
-  configs.stylistic,
   pluginPromise.configs['flat/recommended'],
   importX.flatConfigs.recommended,
   importX.flatConfigs.typescript,
@@ -57,6 +54,11 @@ export default defineConfig(
         createNodeResolver(),
       ],
     },
+    extends: [
+      eslint.configs.recommended,
+      configs.strict,
+      configs.stylistic,
+    ],
     rules: {
       '@stylistic/semi': ['error', 'always'],
       '@stylistic/indent': ['error', 2],

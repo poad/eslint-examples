@@ -28,9 +28,6 @@ export default defineConfig(
       '**/*.js',
     ],
   },
-  eslint.configs.recommended,
-  ...configs.strict,
-  ...configs.stylistic,
   pluginPromise.configs['flat/recommended'],
   importX.flatConfigs.recommended,
   importX.flatConfigs.typescript,
@@ -52,6 +49,9 @@ export default defineConfig(
     },
     extends: [
       cdkConfigs.recommended,
+      eslint.configs.recommended,
+      configs.strict,
+      configs.stylistic,
     ],
     settings: {
       'import-x/resolver-next': [
@@ -112,7 +112,8 @@ export default defineConfig(
         createTypeScriptImportResolver({
           alwaysTryTypes: true,
         }),
-      ]    },
+      ],
+    },
     rules: {
       ...vitest.configs.recommended.rules,
       '@stylistic/semi': ['error', 'always'],
