@@ -275,7 +275,7 @@ overrides:
 importers:
 
   .:
-    dependencies:
+    devDependencies:
       node:
         specifier: runtime:^24.18.0
         version: runtime:24.18.0

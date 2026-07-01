@@ -16,14 +16,16 @@
       "name": "pnpm",
       "version": "^11.5.1",
       "onFail": "download"
-    }
-  },
-  "engines": {
+    },
     "runtime": {
       "name": "node",
       "version": "^24.18.0",
       "onFail": "download"
     }
   },
-  "dependencies": {}
+  "engines": {
+    "node": ">=24",
+    "pnpm": ">=11"
+  },
+  "devDependencies": {}
 }
