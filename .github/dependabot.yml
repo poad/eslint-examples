@@ -29,6 +29,9 @@ updates:
     allow:
       - dependency-type: all
     rebase-strategy: auto
+    ignore:
+      dependency-name: typescript
+      versions: ~7.0.0
     cooldown:
       default-days: 7
     assignees:
