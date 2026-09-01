@@ -1,8 +1,8 @@
 packages:
-  - ./non-react
-  - ./react-based/*
-  - ./aws-cdk
-  - ./aws-cdk-vitest
+  - non-react
+  - react-based/*
+  - aws-cdk
+  - aws-cdk-vitest
 
 allowBuilds:
   esbuild: false
@@ -14,12 +14,20 @@ blockExoticSubdeps: true
 minimumReleaseAge: 10080 # 7 days in minutes
 
 minimumReleaseAgeExclude:
-  - pnpm@11.20.0
-
-  - next@16.3.0
-  - '@next/eslint-plugin-next@16.3.0'
-  - 'eslint-config-next@16.3.0'
+  - pnpm@12.2.1
+  - next@16.3.3
+  - '@next/eslint-plugin-next@16.3.3'
+  - eslint-config-next@16.3.3
   - brace-expansion@5.0.9
+  - '@next/env@16.3.3'
+  - '@next/swc-darwin-arm64@16.3.3'
+  - '@next/swc-darwin-x64@16.3.3'
+  - '@next/swc-linux-arm64-gnu@16.3.3'
+  - '@next/swc-linux-arm64-musl@16.3.3'
+  - '@next/swc-linux-x64-gnu@16.3.3'
+  - '@next/swc-linux-x64-musl@16.3.3'
+  - '@next/swc-win32-arm64-msvc@16.3.3'
+  - '@next/swc-win32-x64-msvc@16.3.3'
 
 overrides:
   brace-expansion@<1.1.16: ^1.1.16
