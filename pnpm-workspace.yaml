@@ -5,6 +5,7 @@ packages:
   - aws-cdk-vitest
 
 allowBuilds:
+  '@parcel/watcher': false
   esbuild: false
   sharp: false
   unrs-resolver: false
@@ -14,20 +15,8 @@ blockExoticSubdeps: true
 minimumReleaseAge: 10080 # 7 days in minutes
 
 minimumReleaseAgeExclude:
-  - pnpm@12.3.1
-  - next@16.3.3
-  - '@next/eslint-plugin-next@16.3.3'
-  - eslint-config-next@16.3.3
-  - brace-expansion@5.0.9
-  - '@next/env@16.3.3'
-  - '@next/swc-darwin-arm64@16.3.3'
-  - '@next/swc-darwin-x64@16.3.3'
-  - '@next/swc-linux-arm64-gnu@16.3.3'
-  - '@next/swc-linux-arm64-musl@16.3.3'
-  - '@next/swc-linux-x64-gnu@16.3.3'
-  - '@next/swc-linux-x64-musl@16.3.3'
-  - '@next/swc-win32-arm64-msvc@16.3.3'
-  - '@next/swc-win32-x64-msvc@16.3.3'
+  - pnpm@12.4.0
+
 
 overrides:
   brace-expansion@<1.1.16: ^1.1.16
