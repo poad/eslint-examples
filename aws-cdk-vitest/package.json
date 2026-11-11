@@ -18,10 +18,10 @@
     "@stylistic/eslint-plugin": "^5.10.0",
     "@types/node": "^26.6.6",
     "@typescript/native": "npm:typescript@^7.0.2",
-    "@vitest/coverage-v8": "^5.0.5",
+    "@vitest/coverage-v8": "^5.1.0",
     "@vitest/eslint-plugin": "^1.6.28",
-    "aws-cdk": "^2.1146.1",
-    "eslint": "^10.13.0",
+    "aws-cdk": "^2.1147.0",
+    "eslint": "^10.14.0",
     "eslint-import-resolver-typescript": "^4.4.5",
     "eslint-plugin-awscdk": "^4.4.4",
     "eslint-plugin-import-x": "^4.17.1",
@@ -31,7 +31,7 @@
     "typescript": "npm:@typescript/typescript6@^6.0.2",
     "typescript-eslint": "^8.72.1",
     "vite": "^8.3.5",
-    "vitest": "^5.0.5"
+    "vitest": "^5.1.0"
   },
   "dependencies": {
     "aws-cdk-lib": "^2.275.0",
